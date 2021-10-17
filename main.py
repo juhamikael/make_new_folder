@@ -97,4 +97,3 @@ for folder_name in folder_names:
                 pass
                 # print(exc)
                 print(file, " already exists in the folder")
-
