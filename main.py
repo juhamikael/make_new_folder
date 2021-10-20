@@ -1,33 +1,24 @@
 import os
 import shutil
 
-# inpt = input("Input root:")
-root = "E:/2017/49 May 2021"
+inpt = input("root:")  # Folder to "go through"
+root = inpt
 
-
-def file_types(file_type):
-    input_in_lower = file_type.lower()
-    if input_in_lower == "documents":
-        return ["pdf", "docx", "odt", "rtf", "txt", "ods", "pptx", "dotx", "doc", "ppt"]
-    if input_in_lower == "images":
-        return ["jpg", "png", "jpeg"]
-    if input_in_lower == "audio":
-        return ["mp3", "wav", "aac"]
-    if input_in_lower == "application":
-        return ["exe", "msi"]
-    if input_in_lower == "packed_files":
-        return ["zip", "rar"]
-    if input_in_lower == "flp":
-        return ["flp"]
-    if input_in_lower == "midi":
-        return ["midi", "mid"]
-    if input_in_lower == "video":
-        return ["mp4", "gif", "mpeg", "mkv"]
-    if input_in_lower == "excel":
-        return ["xlsx", "csv", "xlsm", "xls"]
-
-
-folder_names = [
+file_types = {
+    # File types which are used in for loop in line 51-72
+    "Documents": ["pdf", "docx", "odt", "rtf", "txt", "ods", "pptx", "dotx", "doc", "ppt"],
+    "Images": ["jpg", "png", "jpeg"],
+    "Audio": ["mp3", "wav", "aac"],
+    "Installers": ["exe", "msi"],
+    "Packed Files": ["zip", "rar"],
+    "FLP": ["flp"],
+    "Midi": ["midi", "mid"],
+    "Video": ["mp4", "gif", "mpeg", "mkv"],
+    "Excel": ["xlsx", "csv", "xlsm", "xls"],
+    "Misc": []
+}
+folder_names = (
+    # Folder names to match 'file_types'
     "Documents",
     "Images",
     "Audio",
@@ -38,8 +29,9 @@ folder_names = [
     "Video",
     "Excel",
     "Misc"
-]
+)
 file_map = {
+
     "Documents": [],
     "Images": [],
     "Audio": [],
@@ -54,29 +46,31 @@ file_map = {
 
 for files in os.walk(root):
     for file in files[2]:
-        for filetype in folder_names:
-            if file.endswith(tuple(file_types("documents"))):
-                file_map["Documents"].append(file)
-            elif file.endswith(tuple(file_types("images"))):
-                file_map["Images"].append(file)
-            elif file.endswith(tuple(file_types("audio"))):
-                file_map["Audio"].append(file)
-            elif file.endswith(tuple(file_types("application"))):
-                file_map["Installers"].append(file)
-            elif file.endswith(tuple(file_types("packed_files"))):
-                file_map["Packed Files"].append(file)
-            elif file.endswith(tuple(file_types("flp"))):
-                file_map["FLP"].append(file)
-            elif file.endswith(tuple(file_types("midi"))):
-                file_map["Midi"].append(file)
-            elif file.endswith(tuple(file_types("video"))):
-                file_map["Video"].append(file)
-            elif file.endswith(tuple(file_types("excel"))):
-                file_map["Excel"].append(file)
-            elif file.endswith(tuple(file_types("video"))):
-                file_map["Video"].append(file)
-            else:
-                file_map["Misc"].append(file)
+        # Checking files in the root folder
+        # If file ends with .pdf, .docx, .rtf etc, adding it to filemap documents, check lines 7-18
+        if file.endswith(tuple(file_types['Documents'])):
+            file_map["Documents"].append(file)
+        elif file.endswith(tuple(file_types['Images'])):
+            file_map["Images"].append(file)
+        elif file.endswith(tuple(file_types['Audio'])):
+            file_map["Audio"].append(file)
+        elif file.endswith(tuple(file_types['Installers'])):
+            file_map["Installers"].append(file)
+        elif file.endswith(tuple(file_types['Packed Files'])):
+            file_map["Packed Files"].append(file)
+        elif file.endswith(tuple(file_types['FLP'])):
+            file_map["FLP"].append(file)
+        elif file.endswith(tuple(file_types['Midi'])):
+            file_map["Midi"].append(file)
+        elif file.endswith(tuple(file_types['Video'])):
+            file_map["Video"].append(file)
+        elif file.endswith(tuple(file_types['Video'])):
+            file_map["Video"].append(file)
+        elif file.endswith(tuple(file_types['Excel'])):
+            file_map["Excel"].append(file)
+        else:
+            file_map["Misc"].append(file)
+
 for folder_name in folder_names:
     files_for_folder = file_map[folder_name]
     has_files = len(files_for_folder) > 0
@@ -86,8 +80,8 @@ for folder_name in folder_names:
             os.makedirs(path_ext, exist_ok=True)
         except Exception as exc:
             pass
-            # print(exc)
-            print("Folder alreay exists, skipping folder creation")
+            print(exc)
+            print("Folder already exists, skipping folder creation")
         for file in files_for_folder:
             path_for_folder = os.path.join(root, folder_name)
             path_for_file = os.path.join(root, file)
