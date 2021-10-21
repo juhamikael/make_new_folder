@@ -44,8 +44,10 @@ file_map = {
     "Misc": []
 }
 
-for files in os.walk(root):
-    for file in files[2]:
+for root, dirs, files in os.walk(root):
+    exclude = tuple(set(dirs) - set(list(folder_names)))
+    dirs[:] = [dirname for dirname in dirs if dirname not in exclude]
+    for file in files:
         # Checking files in the root folder
         # If file ends with .pdf, .docx, .rtf etc, adding it to filemap documents, check lines 7-18
         if file.endswith(tuple(file_types['Documents'])):
