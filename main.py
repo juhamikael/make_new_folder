@@ -8,13 +8,16 @@ file_types = {
     # File types which are used in for loop in line 51-72
     "Documents": ["pdf", "docx", "odt", "rtf", "txt", "ods", "pptx", "dotx", "doc", "ppt"],
     "Images": ["jpg", "png", "jpeg"],
-    "Audio": ["mp3", "wav", "aac"],
+    "Audio": ["mp3", "wav", "aac", "ogg", "aif", "m4a"],
     "Installers": ["exe", "msi"],
-    "Packed Files": ["zip", "rar"],
-    "FLP": ["flp"],
+    "Packed Files": ["zip", "rar", "gz"],
+    "Music Production": ["flp", "fst"],
     "Midi": ["midi", "mid"],
     "Video": ["mp4", "gif", "mpeg", "mkv"],
     "Excel": ["xlsx", "csv", "xlsm", "xls"],
+    "Sound Banks & Presets": ["fxp", "nmsv", "spf", "fxb"],
+    "Photoshop": ["psd"],
+    "Torrent": ["torrent"],
     "Misc": []
 }
 folder_names = (
@@ -24,10 +27,13 @@ folder_names = (
     "Audio",
     "Installers",
     "Packed Files",
-    "FLP",
+    "Music Production",
     "Midi",
     "Video",
     "Excel",
+    "Sound Banks & Presets",
+    "Photoshop",
+    "Torrent",
     "Misc"
 )
 file_map = {
@@ -37,10 +43,13 @@ file_map = {
     "Audio": [],
     "Installers": [],
     "Packed Files": [],
-    "FLP": [],
+    "Music Production": [],
     "Midi": [],
     "Video": [],
     "Excel": [],
+    "Sound Banks & Presets": [],
+    "Photoshop": [],
+    "Torrent": [],
     "Misc": []
 }
 
@@ -60,16 +69,20 @@ for root, dirs, files in os.walk(root):
             file_map["Installers"].append(file)
         elif file.endswith(tuple(file_types['Packed Files'])):
             file_map["Packed Files"].append(file)
-        elif file.endswith(tuple(file_types['FLP'])):
-            file_map["FLP"].append(file)
+        elif file.endswith(tuple(file_types['Music Production'])):
+            file_map["Music Production"].append(file)
         elif file.endswith(tuple(file_types['Midi'])):
             file_map["Midi"].append(file)
         elif file.endswith(tuple(file_types['Video'])):
             file_map["Video"].append(file)
-        elif file.endswith(tuple(file_types['Video'])):
-            file_map["Video"].append(file)
         elif file.endswith(tuple(file_types['Excel'])):
             file_map["Excel"].append(file)
+        elif file.endswith(tuple(file_types['Sound Banks & Presets'])):
+            file_map["Sound Banks & Presets"].append(file)
+        elif file.endswith(tuple(file_types['Photoshop'])):
+            file_map["Photoshop"].append(file)
+        elif file.endswith(tuple(file_types['Torrent'])):
+            file_map["Torrent"].append(file)
         else:
             file_map["Misc"].append(file)
 
