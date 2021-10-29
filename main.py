@@ -6,18 +6,20 @@ root = inpt
 
 file_types = {
     # File types which are used in for loop in line 51-72
-    "Documents": ["pdf", "docx", "odt", "rtf", "txt", "ods", "pptx", "dotx", "doc", "ppt"],
-    "Images": ["jpg", "png", "jpeg"],
+    "Documents": ["docx", "odt", "rtf", "txt", "ods", "pptx", "dotx", "doc", "ppt"],
+    "Images": ["jpg", "png", "jpeg","ico"],
     "Audio": ["mp3", "wav", "aac", "ogg", "aif", "m4a"],
     "Installers": ["exe", "msi"],
-    "Packed Files": ["zip", "rar", "gz"],
-    "Music Production": ["flp", "fst"],
+    "Packed Files": ["zip", "rar", "gz", "7z"],
+    "Music Production": ["flp", "fst", "als"],
     "Midi": ["midi", "mid"],
     "Video": ["mp4", "gif", "mpeg", "mkv"],
     "Excel": ["xlsx", "csv", "xlsm", "xls"],
     "Sound Banks & Presets": ["fxp", "nmsv", "spf", "fxb"],
     "Photoshop": ["psd"],
     "Torrent": ["torrent"],
+    "PDF": ["pdf"],
+    # Make new "folder here"
     "Misc": []
 }
 folder_names = (
@@ -34,6 +36,8 @@ folder_names = (
     "Sound Banks & Presets",
     "Photoshop",
     "Torrent",
+    # Make new "folder here
+    "PDF",
     "Misc"
 )
 file_map = {
@@ -50,6 +54,8 @@ file_map = {
     "Sound Banks & Presets": [],
     "Photoshop": [],
     "Torrent": [],
+    # Make new "folder here"
+    "PDF": [],
     "Misc": []
 }
 
@@ -83,6 +89,8 @@ for root, dirs, files in os.walk(root):
             file_map["Photoshop"].append(file)
         elif file.endswith(tuple(file_types['Torrent'])):
             file_map["Torrent"].append(file)
+        elif file.endswith(tuple(file_types['PDF'])):
+            file_map["PDF"].append(file)
         else:
             file_map["Misc"].append(file)
 
