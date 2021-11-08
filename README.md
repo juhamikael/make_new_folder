@@ -1,8 +1,9 @@
 # How it works?
 
 
-This script check files ending ex. (random_photo **.jpg** ) files in a folder to seperate folders
-Lets say that you have lot of differrent jpg, png, zip, mp3, wav and pdf files
+This script check files ending (ex. random_photo **.jpg** ) in a folder and moves files into seperate folders.
+
+### Lets say that you have lot of differrent jpg, png, zip, mp3, wav and pdf files
 
 This script makes folder named:
 - "Images" and moves all files which end with **.jpg** and **.png** inside 
@@ -10,7 +11,7 @@ This script makes folder named:
 - "Audio" and moves all files which end with **.wav** and **.mp3** inside
 - "PDF" and moves all files which end with **.pdf** inside
 
-You can edit this code below to decide what Folder names you want to have and which files goes inside what!
+You can edit main.py and the code below to decide what Folder names you want to have and which files goes inside what!
 
 ```     
     "Documents": ["docx", "odt", "rtf", "txt", "ods", "pptx", "dotx", "doc", "ppt"],
