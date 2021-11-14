@@ -42,4 +42,4 @@ DL with Git Clone or Zipped file
 3. type `python main.py`
 4. Enter your directory, which you want to rearrange. ex. `E:\2021\Projects`
 
-5. [Watch this if you dont know how run this](https://www.youtube.com/watch?v=Qi28uPKaH_A)
+## 5. [Watch this if you dont know how run this](https://youtu.be/Qi28uPKaH_A?t=180)
