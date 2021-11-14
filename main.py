@@ -1,8 +1,8 @@
 import os
 import shutil
 
-# inpt = input("path:")  # Folder to "go through"
-inpt = "D:/53 September 2021"
+inpt = input("path:")  # Folder to "go through"
+# inpt = "D:/53 September 2021"
 path = inpt
 
 file_types = {
