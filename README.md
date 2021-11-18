@@ -33,7 +33,7 @@ You can edit main.py and the code below to decide what Folder names you want to 
 # You need python3 installed on your device (NOTICE!! TESTED ONLY IN WIN10 MACHINE!)
 
 ## Check the link below if you dont have it installed yet:
-[Python 3 Installation & Setup Guide](https://realpython.com/installing-python/#step-2-install-the-python-app)
+Python 3 Installation & Setup Guide: https://realpython.com/installing-python/#step-2-install-the-python-app
 
 ## Download this script and run the script
 DL with Git Clone or Zipped file
